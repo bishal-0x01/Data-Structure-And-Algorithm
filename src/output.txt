@@ -1,1 +1,8 @@
-Sum = 15
+element at position is : 1
+element at position is : 2
+element at position is : 3
+element at position is : 4
+element at position is : 5
+element at position is : 7
+element at position is : 7
+element at position is : 10

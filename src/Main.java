@@ -3,31 +3,22 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
 
-        BufferedReader br;
-        BufferedWriter bw;
+        int n = sc.nextInt();
 
-        if (System.getProperty("ONLINE_JUDGE") == null) {
-            br = new BufferedReader(new FileReader("input.txt"));
-            bw = new BufferedWriter(new FileWriter("output.txt"));
-        } else {
-            br = new BufferedReader(new InputStreamReader(System.in));
-            bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int [] arr = new int [n];
+
+        for(int i = 0; i < n ;i++){
+            arr[i] = sc.nextInt();
         }
 
-        // Example
-        int n = Integer.parseInt(br.readLine());
-        String[] parts = br.readLine().split(" ");
+        Arrays.sort(arr);
 
-        int sum = 0;
-        for (String p : parts) {
-            sum += Integer.parseInt(p);
+        for(int num : arr){
+            System.out.println("element at position is : "+num);
         }
 
-        bw.write("Sum = " + sum);
-        bw.newLine();
-
-        br.close();
-        bw.close();
+        sc.close();
     }
 }
