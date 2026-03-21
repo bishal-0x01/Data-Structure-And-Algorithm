@@ -1,3 +1,14 @@
+
+
+
+/*
+count the number of subarray whose sum is equal to its length
+
+Link : https://www.geeksforgeeks.org/dsa/count-of-subarrays-having-sum-equal-to-its-length/
+
+*/
+
+
 import java.io.*;
 import java.util.*;
 
