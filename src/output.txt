@@ -1,2 +1,3 @@
-Maximum Frequency:- Element is 3, Frequency is 3
-Minimum Frequency:- Element is 4, Frequency is 1
+4
+5
+6
