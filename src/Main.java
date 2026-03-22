@@ -2,57 +2,61 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static Scanner sc;
 
-    public static void solve(){
-        int n = sc.nextInt();
-        long c = sc.nextLong();
-        long k = sc.nextLong();
+    static class Pair {
+        int count;
+        char ch;
 
-        long [] arr = new long [n];
-
-        for(int i = 0; i < n;i++){
-            arr[i] = sc.nextLong();
+        Pair(int count, char ch) {
+            this.count = count;
+            this.ch = ch;
         }
+    }
 
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
 
+        while (t-- > 0) {
+            int r = sc.nextInt();
+            int g = sc.nextInt();
+            int b = sc.nextInt();
 
+            StringBuilder sb = new StringBuilder();
 
+            while (true) {
+                List<Pair> list = new ArrayList<>();
+                if (r > 0) list.add(new Pair(r, 'R'));
+                if (g > 0) list.add(new Pair(g, 'G'));
+                if (b > 0) list.add(new Pair(b, 'B'));
 
+                // sort by remaining count descending
+                list.sort((a, c) -> c.count - a.count);
 
+                boolean placed = false;
 
+                for (Pair p : list) {
+                    int n = sb.length();
 
-        Arrays.sort(arr);
+                    // check constraints
+                    if (n >= 1 && sb.charAt(n - 1) == p.ch) continue;
+                    if (n >= 3 && sb.charAt(n - 3) == p.ch) continue;
 
-        for(int i = 0; i < n;i++){
-            if(c < arr[i]) break;
+                    // place character
+                    sb.append(p.ch);
 
-            long rem = c - arr[i];
+                    if (p.ch == 'R') r--;
+                    else if (p.ch == 'G') g--;
+                    else b--;
 
-            if(k >= rem){
-                arr[i]+=rem;
-                k-=rem;
-            }else{
-                arr[i]+=k;
-                k = 0;
+                    placed = true;
+                    break;
+                }
+
+                if (!placed) break; // no valid move
             }
 
-            c+=arr[i];
+            System.out.println(sb.toString());
         }
-
-        System.out.println(c);
-
-        
-    }
-   
-    public static void main(String[] args) throws Exception {
-       sc = new Scanner(System.in);
-
-       long test = sc.nextLong();
-
-       while(test-- > 0){
-        solve();
-       }
-        sc.close();
     }
 }
