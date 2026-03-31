@@ -8,6 +8,19 @@ Please find out the maximum possible amount of total tip money after processing 
 
 link : https://www.codechef.com/problems/TADELIVE?tab=statement 
 
+
+intuition:
+
+oldsum = b1+b2+b3+b4+...+bn
+
+newsum if replace 1st -> oldsum+ a1 - b1;
+newsum if replace 2nd -> oldsum+ a2 - b2;
+
+[]c = diff (a(i) - b(i));
+sort according to higher value
+
+add them upto x;
+ 
 */
 
 import java.util.*;
