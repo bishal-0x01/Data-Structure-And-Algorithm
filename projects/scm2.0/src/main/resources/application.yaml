@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: scm2.0
